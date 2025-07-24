@@ -22,6 +22,9 @@ public class StringReverse {
 		
 	}
 	
+//	//or if using StringBuffer
+//	StringBuilder sf  = new StringBuilder(value).reverse();
+//	System.out.println(sf.toString());
 
 	if(Arrays.equals(chars, value.toCharArray()))
 		System.out.println("Palindrome");
