@@ -17,13 +17,13 @@ public class Practise {
 			
 			for(int i=2;i<=number;i++) {
 				boolean IsPrime = true;
-				for(int j=1;j*j<i;j++) {
-					if(j%i==0) {
+				for(int j=2;j<i;j++) {
+					if(i%j==0) {
 						IsPrime = false;
 						break;
 					}
 				}
-				if(IsPrime == true) {
+				if(IsPrime == true && i>2) {
 					System.out.println(" "+ i);
 				}
 		}
