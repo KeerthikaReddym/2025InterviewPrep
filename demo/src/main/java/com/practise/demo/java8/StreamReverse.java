@@ -1,13 +1,11 @@
 package com.practise.demo.java8;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import org.apache.logging.log4j.util.Strings;
 
 public class StreamReverse {
 	public static void main(String args[]) {
@@ -51,10 +49,29 @@ public class StreamReverse {
 		
 	Map<Integer, List<String>> groupBy = strings.stream()
 			.collect(Collectors.groupingBy(n -> n.length()));
-		
-		
-		
+	
+	String na = "rrkvali";
+	Map<Character, Integer> count = new HashMap<>();
+	for(char c: na.toCharArray()) {
+		count.put(c, count.getOrDefault(c,0) +1);
+	}
+	
+	for(Map.Entry<Character, Integer> df : count.entrySet()) {
+		if(df.getValue()==1) {
+			//print;
+		}
+	}
+	
+	
+	for(Map.Entry<Character, Integer> w : count.entrySet()) {
+		if(w.getValue() == 1) {
+			System.out.println("First non-repeating character: " + w.getKey());
+            break;
+		}
+	}
 		
 	}
+	
+	
 
 }
