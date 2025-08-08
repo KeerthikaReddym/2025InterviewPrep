@@ -1,29 +1,49 @@
 package com.practise.demo.java8;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Repested {
 
+	public static void main(String args[]) {
+
+	List<Integer> ls = List.of(1,2,3,4,5,6,7,8,9,10);
+	List<int[]> indexes = new ArrayList<>();
+
 	
-
-		@GetMapping("/palindrome")
-		public String palindrome(int number) {
-			int no = number;
-			int reverse = 0;
-			while(number>0) {
-				int temp = number%10;
-				number = number/10;
-				reverse = reverse*10 + temp;
-
-			}
-			System.out.println(reverse);
-			if(no == reverse)
-				return "palindrome";
-			else
-				return "not palindrome";
-
-			
+	int target = 10;
+	
+	Map<Integer, Integer> map = new HashMap<>();
+	
+	for(int i=0;i<ls.size();i++) {
+		
+		int remaining = target - ls.get(i);
+		
+		if(map.containsKey(remaining)) {
+			indexes.add(new int[] {map.get(remaining), i});
 		}
+		
+		map.putIfAbsent(ls.get(i), i);
+		
+		
+	}
+	
+    // Print all pairs
+    if (indexes.isEmpty()) {
+        System.out.println("No pairs found.");
+    } else {
+        for (int[] pair : indexes) {
+            System.out.println("Indexes: " + pair[0] + ", " + pair[1]);
+        }
+    }
+
+	
+	//map = ls.stream().collect(Collectors.groupingBy(n->n, n->n.index))
+	
+	
+	}
 	
 
 }
